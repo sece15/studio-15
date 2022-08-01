@@ -1,11 +1,9 @@
 import React from "react";
 
 const Home = ({ posts, globalData }) => {
-  console.log(globalData);
-  console.log(posts)
   return (
 
-    <div>
+    <div className="">
       Home page
     </div>
   );

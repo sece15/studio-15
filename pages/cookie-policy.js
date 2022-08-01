@@ -2,9 +2,6 @@ import React from "react";
 
 const CookiePolicy = ({ page, globalData }) => {
 
-    console.log(page)
-    console.log(globalData);
-
     return (
 
         <div>

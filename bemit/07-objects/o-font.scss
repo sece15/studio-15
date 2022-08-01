@@ -1,0 +1,8 @@
+.o-font{
+    &-title{
+        @include a-set($font-title);
+    }
+    &-text{
+        @include a-set($font-text);
+    }
+}

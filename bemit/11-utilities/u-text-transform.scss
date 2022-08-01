@@ -1,0 +1,12 @@
+.u-text-transform{
+    &none{
+        text-transform: none !important;
+
+        //PARA CAMBIAR LOS ESTILOS SOLO EN UN RANGO ESPECIFICO EJEMPLO MD
+        &\@only-md{
+            @include only-md{
+                text-transform: none !important;
+            }
+        }
+    }
+}

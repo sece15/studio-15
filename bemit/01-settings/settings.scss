@@ -1,0 +1,84 @@
+// ==============================================// ==============================================
+//SETTINGS
+// ==============================================// ==============================================
+
+//COLORS
+
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+//RESPONSIVE
+
+        //DEKTOP
+
+        $screen-desktop-xxl :  2560px;
+        $screen-desktop-xl  :  1920px;
+        $screen-desktop-lg  :  1600px;
+        $screen-desktop-md  :  1440px;
+        $screen-desktop-sm  :  1366px;
+        $screen-desktop-xs  :  1280px;
+
+
+        //TABLET
+        
+        $screen-tablet-md : 1024px;
+        $screen-tablet-sm :  768px;
+            
+        //MOBILE
+
+        $screen-mobile-md : 480px;
+        $screen-mobile-sm : 320px;
+
+        //BREAKPOINTS
+
+        $break-tablet  :  618px;  // ! ------BREAK TABLE
+        $break-desktop : 1190px;  // ! ------BREAK DESKTOP
+
+        // * RANGOS RESPONSIVES PARA ESTE PROYECTO
+        // * (Móvil)    SM : 0px      a    600px 
+        // * (Tablet)   MD : 611px    a    1190px
+        // * (Desktop)  LG : 1191px   a    infinito
+
+
+        $font-a : 'Mochiy Pop One', sans-serif;
+        
+
+        // *LOS TIPOS DE TIPOGRAFIA QUE SE LE APLICARA A CADA PALABRA SEGUN EL TIPO DE TEXTO
+        $font-title:(
+            sm:(
+                font-size      : 115px,
+                line-height    : 85px,
+                letter-spacing : -1px,
+                font-family    : $font-a,
+                font-weight    : normal,
+                font-style     : normal,
+                text-transform : uppercase,
+            ),
+            //PARA PONER ESTILOS EN UN RANGO EN ESPECIFICO
+            // only-md:(
+            //     border: 1px solid red
+            // ),
+            md:(
+                font-size      : 250px,
+                line-height    : 180px
+            ),
+            lg:(
+                line-height    : 198px
+            )
+        );
+
+        $font-text:(
+            sm:(
+                font-size      : 34px,
+                line-height    : 27px,
+                letter-spacing : 8px,
+                font-family    : $font-a,
+                font-weight    : normal,
+                font-style     : normal
+            ),
+            md:(
+                font-size      : 50px,
+                line-height    : 40px
+            )
+        );
+
