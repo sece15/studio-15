@@ -32,6 +32,10 @@
 }
 
 // ! SM -----------------------------------
+// * de 0px a infinito, (estilos por defecto)
+@mixin sm() {
+    @content;    
+}
 // * de 0px a 610px, 610px incluído
 @mixin only-sm() {
     @include media-to-down($break-tablet){
@@ -60,6 +64,13 @@
         @content;
     }
 }
+@mixin only-lg() {
+    @include media-to-up($break-desktop + 1){
+        @content;
+    }
+}
+
+
 
 @mixin a-set-values($values){
     @each $key, $val in $values {
@@ -71,19 +82,21 @@
 
     $values-sm      : map-get($values, 'sm');
     $values-only-sm : map-get($values, 'only-sm');
-
+    
     $values-md      : map-get($values, 'md');
     $values-only-md : map-get($values, 'only-md');
-
+    
     $values-lg      : map-get($values, 'lg');
     $values-only-lg : map-get($values, 'only-lg');
-
+    
     // PHONE
-    @include a-set-values($values-sm);
+    @include sm{
+        @include a-set-values($values-sm);
+    }
     @include only-sm{
         @include a-set-values($values-only-sm);
     }
-
+    
     // TABLET
     @include md{
         @include a-set-values($values-md);
@@ -95,6 +108,36 @@
     // DESKTOP
     @include lg{
         @include a-set-values($values-lg);
+    }    
+    @include only-lg{
         @include a-set-values($values-only-lg);
     }
 }
+
+//AGREGAMOS UN MIXIN ADICIONAL PARA LAS MEDIDAS DE LAS IMAGENES EN UN ASPECTO DE RADIO DE 56.25%=16:9
+@mixin a-aspect-radio($padding-bottom:56.25%){
+    &::before{
+        content:"";
+        display:block;
+        padding-top: $padding-bottom;
+    }
+}
+//MIXIN PARA QUITAR ESTILOS EJEMPLO DE UN BOTON
+@mixin a-unstyled-field{
+    appearance: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    cursor: default;
+    outline:0;
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: inherit;
+    text-align: inherit;
+}
+
+
+

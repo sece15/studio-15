@@ -3,8 +3,18 @@
         text-transform: none !important;
 
         //PARA CAMBIAR LOS ESTILOS SOLO EN UN RANGO ESPECIFICO EJEMPLO MD
+        &\@only-sm{
+            @include only-sm{
+                text-transform: none !important;
+            }
+        }
         &\@only-md{
             @include only-md{
+                text-transform: none !important;
+            }
+        }
+        &\@only-lg{
+            @include only-lg{
                 text-transform: none !important;
             }
         }

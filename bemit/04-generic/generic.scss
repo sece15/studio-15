@@ -1,0 +1,15 @@
+
+:root{
+    @include a-set($root-vars);
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+::selection{
+    color:var(--color-white);
+    background-color: var(--color-black);
+}
