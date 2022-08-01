@@ -122,7 +122,7 @@
         padding-top: $padding-bottom;
     }
 }
-//MIXIN PARA QUITAR ESTILOS EJEMPLO DE UN BOTON
+
 @mixin a-unstyled-field{
     appearance: none;
     padding: 0;
@@ -137,6 +137,14 @@
     font-family: inherit;
     color: inherit;
     text-align: inherit;
+}
+
+@mixin a-col($cols : 1){
+    width: calc((100% / var(--total-columns)) * #{$cols});
+}
+
+@mixin a-col-push($cols : 1){
+    margin-left: calc((100% / var(--total-columns)) * #{$cols});
 }
 
 

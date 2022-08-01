@@ -40,7 +40,7 @@ $color-white: #FFFFFF;
         // * (Desktop)  LG : 1191px   a    infinito
 
 
-        $font-a : 'Mochiy Pop One', sans-serif;
+        $font-a :  'sans-serif';
         
 
         // *LOS TIPOS DE TIPOGRAFIA QUE SE LE APLICARA A CADA PALABRA SEGUN EL TIPO DE TEXTO
@@ -80,20 +80,59 @@ $color-white: #FFFFFF;
                 font-size      : 50px,
                 line-height    : 40px
             )
-        );
+        ); 
+
+        //CONTAINER WITH AVAILABLES
+        $container__with        : 1815px;
+
+        //COLS    
+        $total_columns__lg : 12;
+        $total_columns__md : 6;
+        $total_columns__sm : 4;
+
+        //GUTTER BETWEEN COLS
+        $grid-gutter__lg : 24px;
+        $grid-gutter__md : 20px;
+        $grid-gutter__sm : 20px;
+
+        //CONTAINER PADDING (ONLY ONE SIDE)
+        $container-padding__lg : 24px;
+        $container-padding__md : 40px;
+        $container-padding__sm : 20px;
 
         $a-transition: all 0.3s ease-in-out;
+        $padding-bottom-default: 20px;
 
         $root-vars: (
             sm:(
                 //VARS
                 --font-a              : $font-a,
                 --a-transition        : $a-transition,
+                --padding-bottom-default: $padding-bottom-default,
                 //COLORS
                 --color-black         : $color-black,
-                --color-white         : $color-white
-            )
-        );
+                --color-white         : $color-white,
+                //LAYOUT
+                --container-width     : $container__with,
+                --total-columns       : $total_columns__sm,
+                --grid-gutter         : $grid-gutter__sm,
+                --container-padding   : $container-padding__sm,
+                
+            ),
 
-        
+            md:(
+            //LAYOUT
+            --total-columns       : $total_columns__md,
+            --grid-gutter         : $grid-gutter__md,
+            --container-padding   : $container-padding__md,
+            ),
+
+            lg:(
+            //LAYOUT
+            --total-columns       : $total_columns__lg,
+            --grid-gutter         : $grid-gutter__lg,
+            --container-padding   : $container-padding__lg,
+            )
+            
+        );
 
