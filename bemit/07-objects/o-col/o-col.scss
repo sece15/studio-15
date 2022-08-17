@@ -1,12 +1,14 @@
 [class^="o-col-"],
 [class*="o-col-"]{
+
     padding-left: calc(var(--grid-gutter) /2);
     padding-right: calc(var(--grid-gutter) /2);
 
-    outline: 1px solid red;
+
 }
 
 .o-col{
+
     @for $i from 1 through $total-columns__sm{
 
         &-#{$i}{

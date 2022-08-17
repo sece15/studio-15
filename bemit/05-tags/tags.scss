@@ -1,7 +1,7 @@
 html{
     box-sizing: border-box;
-    -webkit-font-smoothing:antialiased; /* Chrome, Safari */
-    -moz-osx-font-smoothing:grayscale;/* FIREFOX */
+    -webkit-font-smoothing:antialiased; /* suavisado en Chrome, Safari */
+    -moz-osx-font-smoothing:grayscale;/* suavisado FIREFOX */
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 16px;
@@ -9,6 +9,15 @@ html{
     font-family: var(--font-a);
     font-weight: 400;
 }
+
+//DEBUG
+body{
+    &.is-debug{
+        @include a-debug;
+    }
+}
+
+
 
 body,
 h1,h2,h3,h4,h5,h6,

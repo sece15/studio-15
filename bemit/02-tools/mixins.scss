@@ -140,12 +140,63 @@
 }
 
 @mixin a-col($cols : 1){
+
     width: calc((100% / var(--total-columns)) * #{$cols});
 }
 
 @mixin a-col-push($cols : 1){
+    
     margin-left: calc((100% / var(--total-columns)) * #{$cols});
 }
 
+@mixin a-debug() {
+    outline: 1px dotted fuchsia!important;
+    *{outline: 1px dotted red!important;}
+    **{outline: 1px dotted cyan!important;}
+    ***{outline: 1px dotted orange!important;}
+    ****{outline: 1px dotted blue!important;}
+    *****{outline: 1px solid gray!important;}
+    ******{outline: 1px solid purple!important;}
+    *******{outline: 1px solid rosybrown!important;}
+    ********{outline: 1px solid darkolivegreen!important;}
+    *********{outline: 1px dotted fuchsia!important;}
+    **********{outline: 1px dotted red!important;}
+    ***********{outline: 1px dotted cyan!important;}
+    ************{outline: 1px dotted orange!important;}
+    *************{outline: 1px dotted blue!important;}
+    **************{outline: 1px solid gray!important;}
+    ***************{outline: 1px solid purple!important;}
+    ****************{outline: 1px solid rosybrown!important;}
+    *****************{outline: 1px solid darkolivegreen!important;} 
+    
+}
 
+@mixin a-prepare-debug($position:left, $bg:transparent) {
+    $p : &;
 
+    position:relative;
+    &::after{
+        content:"#{$p}";
+        position:absolute;
+        top:10px;
+        #{$position}:10px;
+        width:auto;
+        height: auto;
+        color:var(--color-black);
+        display: none;
+        z-index: 10;
+        background-color: rgba(#FFFFFF, 0.7);
+        white-space:nowrap;
+        font-size:14px;
+        line-height: 19px;
+    }
+
+    is-debug &{
+        background-color:$bg;
+        outline:4px solid lightsalmon!important;
+
+        &::after{
+            display:block;
+        }
+    }
+}

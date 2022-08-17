@@ -1,0 +1,172 @@
+.b-about{
+    $p : &;
+
+    @include a-prepare-debug(right);
+
+    //*BLOCK
+    $time-block: 1.4;
+    $ease-block: cubic-bezier(0.77, 0, 0.175, 1);
+
+    //*TEXT
+    $time-text: 0.8;
+    $ease-text: cubic-bezier(0.165, 0.84 ,0.44 ,1);
+
+    //* ANIM -PARENT STYLES
+    @mixin b-about-anim-parent {
+
+        position:relative;
+        overflow: hidden;   
+    }
+
+    // *ANIM- VALORES POR DEFAULT OCULTOS LISTOS PARA SER MOSTRADOS AL DAR CLICK (OCULTO)
+    @mixin b-about-anim-hidden {
+
+        transition-property: transform;
+        transition-duration: #{$time-text}s;
+        transition-timing-function: $ease-text;//velocidad de la animacion
+        transition-delay: 0s;
+        will-change: transform;
+        transform: translateY(101%) translateZ(0);
+    }
+
+    // *ANIM- IS MENU OPEN (VISIBLE)
+    @mixin b-about-anim-visible {   
+
+        transform: translateY(0px) translateZ(0);
+    }
+
+    z-index:8;
+    position: fixed;
+    right:0px;
+    top:0px;
+    width:100%;
+    display:block;
+    height: 100vh;
+    background-color: transparent;
+    visibility: hidden;
+    transition: visibility #{$time-text}s $ease-block;
+    overflow: auto;
+
+    .is-menu-open &{
+        visibility: visible;
+        transition-duration: #{$time-block}s;
+    }
+
+    &__mask{
+        z-index:1;
+        position:fixed;
+        right:0px;
+        top:0px;
+        width:100%;
+        height: 100vh;
+        display:block;
+        background-color: var(--color-black);
+        transition-property: transform;
+        transition-duration: #{$time-text}s;
+        transition-timing-function: $ease-block;
+        will-change: transform;
+        transform-origin: bottom;
+        transform: scaleY(0) translateZ(0);
+    
+        .is-menu-open &{
+            transform: scaleY(1) translateZ(0);
+            transition-duration: #{$time-block}s;
+        }
+    }
+
+    &__wrapper{
+        position:relative;
+        z-index: 2;
+        height:auto;
+        display: block;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    &__box{
+
+        display: block;
+        width:100%;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    &__box-wrapper-title{
+        display: block;
+        width:100%;
+        margin-bottom: 9px;
+
+        @include b-about-anim-parent();
+    }
+
+    &__box-title{
+        
+        display:block;
+        width:100%;
+        color:var(--color-white);
+
+        @include b-about-anim-hidden();
+
+        .is-menu-open &{
+            @include b-about-anim-visible();
+        }
+
+        &--1{
+            .is-menu-open &{
+                transition-delay: #{$time-text}s;
+            }
+        }
+
+        &--2{
+            .is-menu-open &{
+                transition-delay: #{$time-text + 0.1}s;
+            }
+        }
+
+        &--3{
+            .is-menu-open &{
+                transition-delay: #{$time-text + 0.2}s;
+            }
+        }
+    }
+
+    &__box-wrapper-content{
+
+        display:block;
+        width:100%;
+
+        @include b-about-anim-parent();
+
+    }
+
+    &__box-content{
+        display:block;
+        width:100%;
+        color:var(--color-white);
+
+        @include b-about-anim-hidden();
+
+        .is-menu-open &{
+            @include b-about-anim-visible();
+        }
+
+        &--1{
+            .is-menu-open &{
+                transition-delay: #{$time-text + 0.1}s;
+            }
+        }
+
+        &--2{
+            .is-menu-open &{
+                transition-delay: #{$time-text + 0.2}s;
+            }
+        }
+
+        &--3{
+            .is-menu-open &{
+                transition-delay: #{$time-text + 0.3}s;
+            }
+        }
+    }
+
+}

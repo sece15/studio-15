@@ -1,0 +1,53 @@
+.b-footer{
+    $p : &;
+
+    @include a-prepare-debug(right);
+
+    position: fixed;
+    z-index: 10;
+    bottom:0;
+    left: 0;
+    width:100%;
+    height: auto;
+    padding-bottom: 12px;
+    
+    &__wrapper-button{
+        position:relative;
+        display:flex;
+        width: 100%;
+        justify-content: center;
+        overflow: hidden //animacion over flow
+    }
+
+    &__button{
+        @include a-unstyled-field;
+        @include a-set($font-text);
+
+        cursor:pointer;
+        text-transform: uppercase;
+        width: auto;
+        max-width:100%;
+        display:block;
+        text-align: center;
+        color:var(--color-black);
+        transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+        transform:translateY(0px) translateZ(0px);//mejor rendimiento para hacer el overflow animation
+
+        &::after{
+            @include a-set($font-text);
+
+            content:attr(data-to-close);
+            display:block;
+            width:100%;
+            height:auto;
+            color:var(--color-white);
+            position:absolute;
+            top:101%;
+            left:0px;
+        }
+
+        .is-menu-open &{
+            transform:translateY(calc(-101%)) translateZ(0);
+        }
+    }
+}
